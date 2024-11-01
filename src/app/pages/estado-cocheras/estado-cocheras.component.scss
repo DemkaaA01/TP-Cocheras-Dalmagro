@@ -1,0 +1,124 @@
+h1{
+    font-family: "Montserrat";
+    margin-top: 20px;
+    margin-left: 60px;
+    font-size: xxx-large;
+    color: #f0f0f0;
+    border-bottom: 3px solid #f0f0f0;
+}
+
+a{
+    text-decoration: none;
+    color:  #f0f0f0;
+    font-size: large;
+    &:hover{
+        transform: scale(1.2);
+        border: 1px  #f0f0f0 solid;
+
+}}
+
+button{
+    cursor: pointer;
+}
+
+.closeSesion{
+    margin-left: 1180px;
+    margin-right: 50px;
+}
+
+.manageAccount{
+    margin-top: -23px;
+}
+
+
+.tabla{
+    background-color: #f0f0f0;
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    border-collapse: collapse; 
+    min-width: 450px;
+}
+
+table img{
+    width: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.deleteFila{
+border: none;
+outline: none;}
+
+thead{
+    background-color: (#333333);
+    color:  #f0f0f0;
+    text-align: middle;
+}
+
+th{
+    padding: 12px 15px;
+}
+
+tr{
+    text-align: center;
+    border-bottom: 1px solid (#333333);
+}
+
+td{
+    padding: 20px;
+}
+
+main{
+    position: fixed; 
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)),
+        url(https://blog.corporacionbi.com/hubfs/2022/Blogs/Cr%C3%A9dito%20de%20autos/2.%20Seguridad%20al%20volante%20Tips%20para%20estacionar%20un%20carro.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat
+
+
+}
+
+.agregarFila{
+    margin-left: 700px;
+    margin-top: 30px;
+    font-size: medium;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    color: (#FDEDEC);
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+.agregarFila:hover{
+    transform: scale(1.1);
+    background-color: (#FDEDEC);
+    color: #333333;
+}
+
+.ocupado{
+    text-decoration: line-through;
+}
+
+.disponible{
+    color: #333333;
+    font-weight: 600;
+}
+
+img .enableCochera{
+    width: 50px;
+}
+
+.disponibleButton{
+    border: none;
+    background-color: transparent
+
+}

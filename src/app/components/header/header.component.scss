@@ -1,0 +1,36 @@
+h1{
+    font-family: "Montserrat";
+    font-weight: bolder;
+    margin-top: 20px;
+    margin-left: 60px;
+    font-size: xxx-large;
+    color: #f0f0f0;
+    border-bottom: 3px solid #f0f0f0;
+}
+
+a{
+    text-decoration: none;
+    color:  #f0f0f0;
+    font-size: large;
+    &:hover{
+        transform: scale(1.5);
+        font-weight: bolder;
+
+}}
+
+
+
+.manageAccount{
+    margin-top: -23px;
+    margin-left: 950px;
+}
+
+.closeSesion{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.reports{
+    margin-left: 20px;
+}
+

@@ -1,0 +1,48 @@
+<main>
+    <app-header></app-header>
+
+
+
+<table class="tabla">
+     <thead> 
+        <tr> <th>Nro</th> <th>Patente</th> <th>Ingreso</th> <th>Acciones</th> </tr> 
+    </thead>
+    @for (fila of filas; track $index) {
+        <tbody> 
+            <tr>
+                 <td>{{ fila.descripcion || 'Sin nombre' }}</td> 
+                        <td *ngIf="fila.patente; else disponibleText">
+                          <span (click)="cerrarEstacionamiento(fila.patente)" class="patenteClickable">
+                            {{ fila.patente }}
+                          </span>
+                          </td>
+                          <ng-template #disponibleText>
+                            <td >
+                              <button
+                                (click)="abrirModalNuevoEstacionamiento(fila.id)"
+                                [disabled]="fila.deshabilitada || fila.activo"
+                                class="disponibleButton"
+                                [ngClass]="{ disponible: !fila.deshabilitada && !fila.patente, ocupado: fila.deshabilitada }"
+                              >
+                                Disponible
+                              </button>
+                            </td>
+                          </ng-template>
+                 <td>{{fila.horaIngreso}}</td>
+                 <td><button (click)="eliminarFila(fila.id)" class="deleteFila" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAPFJREFUSEvtVtEVwiAQSyfRUXQT3cxNdBN1Exuf9VEEEmyf+AGfNHch4bjegEZraMSLGuIDgK046G3EnBwxLvEZwM5JOOIuAPYK6xBT5VUlir6TmAfILoeYSqmYq5TQxT0T/Q0xbWURhWsT7LFw7hn/FI6xLL6k4tCuymuV8Nk1xVY3Iw6PPT0h63lEemVsqbhkcMFcGVtLPHWvsEOl9lYnTiV092YG1Sp2SbrijzrsVqsG0ouLDrkuLHrHzTqX/Pe9AKs3kJ8Su2QpHKeOY+pDqYF8M13GHNnhUA17JOdUogb5nNr3jBUDFPESm4uxzYgf6SOGH0AL/E4AAAAASUVORK5CYII="/></button> 
+                 <button (click)="deshabilitarCochera(fila.id )" class="deleteFila" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAdZJREFUSEvFlo1NQzEMhNNNYBJgE5gEmASYBJgENgF9KI7uXeO8pKJqJNTy/Oo7n3/iQ7nQOVwIt5wCfFVKuS2l8PldifP5sRLELDAg96WUx4HzAH+bIbEHPAPoXILAsyhyxHcEDOh7lTR+iJyfNSK+q+w3NQXxLgTuMvAMGIdfQhMnDxMSOtkUPAMmUgqIg2RPC4Xj6emC94BfaiGdAqr8IBvF+FoVa3YHJkqi5cD02iLVFnIR3Mb/BIHPo1Q5sEZLYWhv4gA77eLSZzatFXzh8+84MAXFyy6NOoC9grtKXslRLxsFFVgd9AqKAULEkYYYFJEanrtKPNNcN7sCq2Nah6j9ODhKxOmBYtOAmt8MmKKKOTwC3wPFrmlqSiqwSjIC1ghU9lGv/1SG3YjV4YxsqoQXnNq6KVwpLo8UctGro8i7Sipw2nOWJ69eLzhvJ50NDc/7WHvOL4UA6KUhs6lKm9ngwD4ofGR2Omz4SC+bDeG9S+JouC8gL10S0XexAIyqdcRBQXuXTbrs/dcikI3R4ZbZ2yZgz1+sP6EQRdRbfdKt5RzLHmR2t5Y94Mgj0bNN0DbZiXqgILM53347C6wEIBG3UmwdZ1voF7po7tXViOe8Trz1C5Oemh9tklMZAAAAAElFTkSuQmCC"/></button>
+                 <button (click)="habilitarCochera(fila.id )" class="deleteFila" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAcZJREFUSEvFloFNAzEQBJ1OoBKgE1IJUAlQCVBJ6AQ0yPvav7fjc8QrlqJE8O/ZW+/ZPpQrjcOVuOUS8E0p5b6Uwvd3Fc7350wRWTCQx1LK05nJBX/PiBiBM8CoRQJezJGN3nNgoB/VUr2InV+1In677Xd1CfQsAh568B6YCU8mk0mOCQuj2C68B6ZSAsTAsueJ4MTlacJb4NcapEugrg+xCuNbdWz5fwRTJdUyUHo7UWl8lMopgjk3SxXBXi3BmOlNBY3qNDwrzMWcfyOCCRQPb6wZVO4AQuhw5WXloIPd5plAxQ6Ion2tFxcdzM6E1YyoulfwCMp7XtAybw9MqLQP8zKC4k6UgfKuP7c46WC3xMG+RtqJslA59ROd7K2xJ9oFqS3Ucsw3CmJzCbPhcriv9wjKs00nHdztuUqK8AxU+aDqVfvGPvb1bB0KgmehnujVOxHsVfe2TCbL7mh+2Kx2wtEhka2s1edTh4T6ThcAquYqM3MsxkA1ndv7IoCI5mEzc/VBuT66/sgh1r119eneWva47CFmeMiMwAoNaec2oX5shUl5IJC+zzcPmCzYBSCCj2yW/dkWW+8kvXNvr7/PVvxvOn4B6xuMH0TcvqcAAAAASUVORK5CYII="/> </button> </td>
+                </tr>
+
+        </tbody> }
+        
+</table>
+
+<div>
+    <button (click)="agregarFila()" class="agregarFila" >Agregar fila</button>
+    
+    </div>
+
+</main>
+
+

@@ -1,0 +1,18 @@
+<main>
+<div class="contenedor">
+<h1>¡BIENVENIDO A EASYPARK!</h1>
+<p class="registerButton">¿Eres nuevo en EasyPark? <button (click)="abrirModalRegistro()" class="registerButton2">¡Registrate aquí!</button></p>
+
+<form>
+    <div class="sesionButtons">
+<input class="loginButton" type="text" [(ngModel)]="datosLogin.username" name="usuario" placeholder="Usuario...">
+<input type="password" [(ngModel)]="datosLogin.password" name="password" placeholder="Contraseña..."> 
+    </div>
+<p><button (click)="abrirModalContrasena()"  class="recoverAccount">Olvidé mi Contraseña</button></p>
+<button type="button" class="loginSesion" (click)="Login()">Iniciar sesión</button>
+</form>
+</div>
+
+
+</main> 
+
